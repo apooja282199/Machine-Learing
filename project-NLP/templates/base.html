@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style/style.css') }}">
 <style>
 body, html {
   height: 100%;
@@ -196,10 +197,6 @@ b{color:white;}
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
-
-
-
 </style>
 </head>
 <body>
@@ -207,8 +204,6 @@ b{color:white;}
 <div class="topnav">
 <h1 class="active" > Natural Language Processing</h1>
 <a title="To Exit The Page Press Here" href="/"> exit</a> 
-
-
 <div class="dropdown" >
     <button class="dropbtn">Description 
       <i class="fa fa-caret-down"></i>
@@ -236,9 +231,21 @@ b{color:white;}
 <input type="submit" value="submit">
 </form>
 </center>
-<center><h3><b><b><b>{{label}}</b></b></b></h3></center>
-</div>
-</div>
+<center><h1>{{label}}</h1>
+<p>
+	{% if ypred == "Positive Tweet" %}
+	<p>Positive</p>
+		<img src="/static/1.jpg" height="60" width="70" alt="Positive" class="tab3">
+    {% else %}
+    {% if ypred == "Negative Tweet" %}
+    <p>Negative</p>
+        <img src="/static/2.jpg" height="60" width="70" alt="Negative" class="tab3">
+    {% else %}
+        <img src="/static/3.jpg"  height="60" width="70" alt="Emotion" class="tab3">
+    {% endif %}
+    {% endif %}
+	</p>
+</center>	
 </div>
 </div>
 </body>
